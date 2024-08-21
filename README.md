@@ -27,6 +27,7 @@ Dataset Download Link:
 * [ImageNet-30-train](https://drive.google.com/file/d/1B5c39Fc3haOPzlehzmpTLz6xLtGyKEy4/view),
 [ImageNet-30-test](https://drive.google.com/file/d/13xzVuQMEhSnBRZr-YaaO08coLU2dxAUq/view)
 
+
 ## 2. Training
 
 To train our models, run this command:
@@ -59,6 +60,11 @@ python ./eval.py --normal_class $normal_class --image_size $image_size --dataset
 * For multi-class training, set `--outlier_dataset` as the OOD target dataset, and --dataset will be the determined ID dataset.
 
 * The resize_factor & resize fix option fix the cropping size of RandomResizedCrop().
+
+## 4. Notebook
+
+[Google Colab notebook](https://colab.research.google.com/drive/1p2fLr6dR8A5VobiNm6tviKoWFCoP4cvN?usp=sharing) as an example of training and evaluation.
+
 
 ## Citation
 ```
