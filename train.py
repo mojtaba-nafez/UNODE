@@ -182,6 +182,7 @@ def evaluate_model(P, logger):
 
 def main():
     P, anomaly_labels, device = initialize()
+    P.ood_dataset = anomaly_labels
     print("anomaly_labels: ", anomaly_labels)
     train_set, test_set, full_test_set = prepare_datasets(P)
     train_loader, test_loader = prepare_dataloaders(train_set, test_set, P)
@@ -191,7 +192,8 @@ def main():
     print("Unique labels(test_loader):", get_loader_unique_label(test_loader))
     print("Unique labels(train_loader):", get_loader_unique_label(train_loader))
     
-    ood_test_loader = prepare_ood_loaders(anomaly_labels, full_test_set, P, {'pin_memory': False, 'num_workers': 4})
+    kwargs = {'pin_memory': False, 'num_workers': 4}
+    ood_test_loader = prepare_ood_loaders(P, full_test_set, kwargs)
 
     model, simclr_aug, criterion, optimizer, scheduler_warmup = prepare_model_and_optim(P, device)
     resume, start_epoch = resume_training(P, model, optimizer)
