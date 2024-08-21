@@ -55,7 +55,7 @@ def prepare_dataloaders(train_set, test_set, P):
     return train_loader, test_loader
 
 def prepare_ood_loaders(P, full_test_set, kwargs):
-    P.ood_dataset = P.ood_dataset if P.dataset in ['cifar10-vs-x', 'cifar100-vs-x', 'ISIC2018', 'mvtecad', 'cifar10-versus-100', 'cifar100-versus-10'] else [1]
+    P.ood_dataset = P.ood_dataset if not P.dataset in ['cifar10-vs-x', 'cifar100-vs-x', 'ISIC2018', 'mvtecad', 'cifar10-versus-100', 'cifar100-versus-10'] else [1]
     print("P.ood_dataset", P.ood_dataset)
     ood_test_loader = {}
     for ood in P.ood_dataset:
