@@ -1,0 +1,66 @@
+{
+    "mvtecad" : {
+        "rotation": 0.0,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.8,
+        "elastic": 0.0,
+        "mixup": 0.2
+    },
+    "cifar10" : {
+        "rotation": 0.1,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.0,
+        "elastic": 0.0,
+        "mixup": 0.9
+    },
+    "head-ct" : {
+        "rotation": 0.0,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.6,
+        "elastic": 0.0,
+        "mixup": 0.4
+    },
+    "ISIC2018":{
+        "rotation": 0.0,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.8,
+        "elastic": 0.0,
+        "mixup": 0.2
+    },
+    "mnist":{
+        "rotation": 0.7,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.0,
+        "elastic": 0.0,
+        "mixup": 0.3
+    },
+    "mnist-corruption":{
+        "rotation": 0.7,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.0,
+        "elastic": 0.0,
+        "mixup": 0.3
+    },
+    "fashion-mnist":{
+        "rotation": 0.7,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.0,
+        "elastic": 0.0,
+        "mixup": 0.3
+    },
+    "other-dataset":{
+        "rotation": 0.3,
+        "cutperm": 0.0,
+        "cutout": 0.0,
+        "cutpaste": 0.0,
+        "elastic": 0.0,
+        "mixup": 0.7
+    }
+}
