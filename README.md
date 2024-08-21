@@ -1,7 +1,7 @@
 # Universal Novelty Detection Through Adaptive Contrastive Learning
 
 Official PyTorch implementation of
-["**Universal Novelty Detection Through Adaptive Contrastive Learning**"]() (CVPR 2024) by
+["**Universal Novelty Detection Through Adaptive Contrastive Learning**"](https://openaccess.thecvf.com/content/CVPR2024/html/Mirzaei_Universal_Novelty_Detection_Through_Adaptive_Contrastive_Learning_CVPR_2024_paper.html) (CVPR 2024) by
 [Hossein Mirzaei](),
 [Mojtaba Nafez](),
 [Mohammad Jafari](),
@@ -14,7 +14,7 @@ and [MohammadHossein Rohban]().
     <img src=figures/method.png width="500"> 
 </p>
 
-## 1. Requirements
+## Requirements
 ### Environments
 - [torchlars](https://github.com/kakaobrain/torchlars) == 0.1.2 
 
@@ -28,7 +28,7 @@ Dataset Download Link:
 [ImageNet-30-test](https://drive.google.com/file/d/13xzVuQMEhSnBRZr-YaaO08coLU2dxAUq/view)
 
 
-## 2. Training
+## Training
 
 To train our models, run this command:
 
@@ -42,7 +42,7 @@ python train.py --model $model --epochs $epochs --eval_steps $eval_steps --norma
 
 > Note: The `config.json` file specifies the probability of each negative transformation used during training. This probability distribution is determined by the AutoAugOOD module in  `AutoAugOOD.ipynb` individually for each dataset and each normal class.
 
-## 3. Evaluation
+## Evaluation
 
 We provide the checkpoint of the Unode pre-trained model. Download the checkpoint from the following link:
 - One-class CIFAR-10: [Wide-Res](https://drive.google.com/drive/folders/1-vmaK398GWxdyNJbXObeVyHYWzszT7GY?usp=sharing)
@@ -61,17 +61,19 @@ python ./eval.py --normal_class $normal_class --image_size $image_size --dataset
 
 * The resize_factor & resize fix option fix the cropping size of RandomResizedCrop().
 
-## 4. Notebook
+## Notebook
 
 [Google Colab notebook](https://colab.research.google.com/drive/1p2fLr6dR8A5VobiNm6tviKoWFCoP4cvN?usp=sharing) as an example of training and evaluation.
 
 
 ## Citation
 ```
-@inproceedings{ND2024unode,
-  title={Universal Novelty Detection Through Adaptive Contrastive Learning},
-  author={Hossein Mirzaei and Mojtaba Nafez and Mohammad Jafari and Mohammad Bagher Soltani and Jafar Habibi and Mohammad Sabokrou and MohammadHossein Rohban},
-  booktitle={Conference on Computer Vision and Pattern Recognition},
-  year={2024}
+@InProceedings{Mirzaei_2024_CVPR,
+    author    = {Mirzaei, Hossein and Nafez, Mojtaba and Jafari, Mohammad and Soltani, Mohammad Bagher and Azizmalayeri, Mohammad and Habibi, Jafar and Sabokrou, Mohammad and Rohban, Mohammad Hossein},
+    title     = {Universal Novelty Detection Through Adaptive Contrastive Learning},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {22914-22923}
 }
 ```
