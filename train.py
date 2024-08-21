@@ -39,7 +39,7 @@ def prepare_datasets(P):
 
     full_test_set = deepcopy(test_set)  # test set of full classes
 
-    if P.dataset in ['ISIC2018', 'mvtecad', 'cifar10-versus-100', 'cifar100-versus-10']:
+    if P.dataset in ['cifar10-vs-x', 'cifar100-vs-x', 'ISIC2018', 'mvtecad', 'cifar10-versus-100', 'cifar100-versus-10']:
         train_set = set_dataset_count(train_set, count=P.normal_data_count)
         test_set = get_subclass_dataset(P, test_set, classes=[0])
     else:
@@ -54,14 +54,18 @@ def prepare_dataloaders(train_set, test_set, P):
     test_loader = DataLoader(test_set, shuffle=False, batch_size=P.test_batch_size, **kwargs)
     return train_loader, test_loader
 
-def prepare_ood_loaders(anomaly_labels, full_test_set, P, kwargs):
+def prepare_ood_loaders(P, full_test_set, kwargs):
+    P.ood_dataset = P.ood_dataset if P.dataset in ['cifar10-vs-x', 'cifar100-vs-x', 'ISIC2018', 'mvtecad', 'cifar10-versus-100', 'cifar100-versus-10'] else [1]
+    print("P.ood_dataset", P.ood_dataset)
     ood_test_loader = {}
-    for ood in anomaly_labels:
+    for ood in P.ood_dataset:
         ood_test_set = get_subclass_dataset(P, full_test_set, classes=ood)
         ood_label = f'one_class_{ood}'
+        print(f"testset anomaly(class {ood_label}):", len(ood_test_set))
         ood_test_loader[ood_label] = DataLoader(ood_test_set, shuffle=False, batch_size=P.test_batch_size, **kwargs)
+        print("Unique labels(ood_test_loader):", get_loader_unique_label(ood_test_loader[ood_label]))
     return ood_test_loader
-
+    
 def prepare_model_and_optim(P, device):
     simclr_aug = C.get_simclr_augmentation(P, image_size=P.image_size).to(device)
     model = C.get_classifier(
